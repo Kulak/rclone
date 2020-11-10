@@ -40,6 +40,12 @@ go there.
 rclone sync source:path dest:path [flags]
 ```
 
+## Troubleshooting
+
+### Q: sync command keeps copying local filesystem data to remote
+
+A: Make sure that your remote path does not include two consecutive slashes.  For example, if 'backblaze' remote path includes 2 consecutive slashes like this '/bucket//remaining/path' then backup will work, but it will not find existing files and treat source files as new.  Remove extra slash to resolve the problem.
+
 ## Options
 
 ```
